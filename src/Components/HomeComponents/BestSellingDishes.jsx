@@ -49,6 +49,34 @@ const BestSellingDishes = () => {
     fetchData()
   }, []);
 
+
+  const handleCategory = async (e) => {
+    e.preventDefault();
+    const category = e.target.category.value;
+    const newCategory = {category}
+
+    try {
+      const res = await fetch("/api/add-category", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newCategory),
+      });
+
+      if (res.ok) {
+        alert("Category Added successfully");
+        setVisibleForm(null)
+        e.target.reset()
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
+
+
+
   const filteredFood =
     selectedCategory === "All"
       ? allFood
@@ -119,7 +147,7 @@ const BestSellingDishes = () => {
       {visibleForm === "category" && (
         <div className="mt-8 max-w-lg mx-auto shadow-2xl rounded-2xl relative z-10">
           <h1 className="text-center pt-4 font-bold text-xl">Add Category</h1>
-          <form className="flex flex-col gap-3 max-w-xs mx-auto py-8">
+          <form onSubmit={handleCategory} className="flex flex-col gap-3 max-w-xs mx-auto py-8">
             <input className="p-2 border" name="category" type="text" placeholder="Category" required />
             <input type="submit" value="Save" className="bg-gray-800 text-white rounded-4xl p-1.5" />
           </form>
