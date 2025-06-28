@@ -30,7 +30,6 @@ const feedbacks = [
 
 const CustomerFeedback = () => {
   const [feedbackShow , setFeedback] = useState(feedbacks[0])
-  console.log(feedbackShow);
 
   const handleFeedback = (feedback) => {
       setFeedback(feedback)
