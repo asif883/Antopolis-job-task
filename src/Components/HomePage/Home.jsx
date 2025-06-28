@@ -4,6 +4,7 @@ import BestSellingDishes from '../HomeComponents/BestSellingDishes';
 import Footer from '../Footer';
 import CustomerFeedback from '../HomeComponents/CustomerFeedback';
 import TeamSection from '../HomeComponents/TeamSection';
+import Clients from '../HomeComponents/Clients';
 
 const HomePage = () => {
     return (
@@ -12,6 +13,7 @@ const HomePage = () => {
           <BestSellingDishes/>
           <CustomerFeedback/>
           <TeamSection/>
+          <Clients/>
           <Footer/>
         </div>
     );
