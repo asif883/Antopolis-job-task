@@ -28,11 +28,11 @@ const imageOptions = [
 
 const HeroSection = () => {
   const [selected, setSelected] = useState(imageOptions[0]);
-  const [imageKey, setImageKey] = useState(0); // for triggering animation
+  const [imageKey, setImageKey] = useState(0); 
 
   const handleImageClick = (item) => {
     setSelected(item);
-    setImageKey(prev => prev + 1); // change key to trigger re-render + animation
+    setImageKey(prev => prev + 1);
   };
 
   return (
@@ -72,7 +72,7 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Right Side Image with Animation */}
+        {/* right side image */}
         <div className="z-10">
           <AnimatePresence mode="wait">
             <motion.img
